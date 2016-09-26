@@ -1,0 +1,32 @@
+1: package yin.learn.io;
+1: 
+1: import java.io.BufferedReader;
+1: import java.io.IOException;
+1: import java.io.PrintWriter;
+1: import java.io.StringReader;
+1: 
+1: public class FileOutputShortcut {
+1: 
+1: 	static String file = "FileOutputShortcut.out";
+1: 
+1: 	public static void main(String[] args) throws IOException {
+1: 		BufferedReader in = new BufferedReader(new StringReader(
+1: 		BufferedInputFile.read("C:/Users/瑞栋/git/LearnJava/src/yin/learn/io/FileOutputShortcut.java")));
+1: 		// Here's the shortcut:
+1: 		//Java SE5在PrintWriter中添加了一个辅助构造器，使得你不必在每次希望创建文本文件并 向其中写人时，都去执行所有的装饰工作
+1: 		PrintWriter out = new PrintWriter(file);
+1: 		// old
+1: 		// PrintWriter out = new PrintWriter( new BufferedWriter (new FileWriter(file))); 
+1: 		int lineCount = 1;
+1: 		String s;
+1: 		// 循环从输入流中readLine()读取一个文本行 直到 到达流末尾，则返回 null
+1: 		while ((s = in.readLine()) != null)
+1: 			// 向输出流 输出行号和每次读取的文本行 字符串 然后终止该行
+1: 			out.println(lineCount + ": " + s);
+1: 		out.close();
+1: 		// Show the stored file:
+1: 		System.out.println(BufferedInputFile.read(file));
+1: 
+1: 	}
+1: 
+1: }

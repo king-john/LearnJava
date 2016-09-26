@@ -1,0 +1,28 @@
+1: package yin.learn.io;
+2: 
+3: import java.io.BufferedReader;
+4: import java.io.BufferedWriter;
+5: import java.io.FileWriter;
+6: import java.io.IOException;
+7: import java.io.PrintWriter;
+8: import java.io.StringReader;
+9: 
+10: public class BasicFileOutput {
+11: 
+12: 	static String file = "BasicFileOutput.out";
+13: 	public static void main(String[] args) throws IOException {
+14: 		BufferedReader in = new BufferedReader( new StringReader(
+15: 				BufferedInputFile.read("C:/Users/瑞栋/git/LearnJava/src/yin/learn/io/BasicFileOutput.java")));
+16: 		
+17: 		PrintWriter out = new PrintWriter( new BufferedWriter(new FileWriter(file))); 
+18: 		int lineCount = 1;
+19: 		String s;
+20: 		while( (s = in.readLine()) != null ) 
+21: 			out.println(lineCount++ + ": " + s); 
+22: 		out.close();
+23: 		// Show the stored file:
+24: 		System.out.println (BufferedInputFile.read (file));
+25: 
+26: 	}
+27: 
+28: }
